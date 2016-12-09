@@ -46,9 +46,6 @@ public class Menu : MonoBehaviour
             case "Main":
                 showPanel("Main");
                 break;
-            case "Level1":
-                hidePanel("Main");
-                break;
         }
     }
  }

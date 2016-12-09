@@ -2,6 +2,7 @@
 using System.Collections;
 using UnetManager = UnityEngine.Networking.NetworkManager;
 using UnityEngine.Rendering;
+using UnityEngine.Networking;
 
 namespace Laravel
 {
@@ -27,8 +28,14 @@ namespace Laravel
         }
 
         // Checks if this build is headless (dedicated server)
+        // https://noobtuts.com/unity/unet-server-hosting
         public static bool isServer() {
             return SystemInfo.graphicsDeviceType == GraphicsDeviceType.Null;
+        }
+
+        public static void spawn (string name, Vector3 position, Quaternion rotation)
+        {
+            NetworkServer.Spawn((GameObject)Instantiate((GameObject)Resources.Load("Prefabs/" + name), position, rotation));
         }
     }
 }

@@ -13,7 +13,7 @@ public class MainPanel : NetworkBehaviour
     }
 
     public void connect() {
-        NetworkManager.singleton.matchMaker.ListMatches(0, 20, "room-123", true, 0, 0, OnMatchList);
+        NetworkManager.singleton.matchMaker.ListMatches(0, 1, "room-123", true, 0, 0, OnMatchList);
     }
 
     public void OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo)
