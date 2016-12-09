@@ -31,19 +31,20 @@ public class Player : NetworkBehaviour
         {
             // test RPCs
             CmdOnShoot();
-
-            // test prefab spawning
-            Vector3 pos = Input.mousePosition;
-            pos.z = 10.0f;
-            pos = cam.GetComponent<Camera>().ScreenToWorldPoint(pos);
-            pos.y = transform.position.y;
-
-            Laravel.NetworkManager.spawn("Furnis/Statue", pos, Quaternion.identity);
         }
     }
 
     [Command]
-    void CmdOnShoot() {
+    void CmdOnShoot()
+    {
+        // test prefab spawning
+        Vector3 pos = Input.mousePosition;
+        pos.z = 10.0f;
+        pos = cam.GetComponent<Camera>().ScreenToWorldPoint(pos);
+        pos.y = transform.position.y;
+
+        Laravel.NetworkManager.spawn("Furnis/Statue", pos, Quaternion.identity);
+
         RpcShoot();
     }
 
